@@ -18,7 +18,7 @@ public interface UserServiceI {
 
     //GET Single date
 
-User getSingleUser(Long userId);
+User getSingleUser(Long userId) throws Exception;
 
     //GET Alldata
 
