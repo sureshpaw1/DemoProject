@@ -9,26 +9,24 @@ public interface UserServiceI {
     //curd
 
     //CREATE
-     User createUser (User user);
+    User createUser(User user);
 
-     //UPDATE
+    //UPDATE
 
-    User updateUser(User user, Long userId );
+    User updateUser(User user, Long userId);
 
 
     //GET Single date
 
-User getSingleUser(Long userId) throws Exception;
+    User getSingleUser(Long userId) throws Exception;
 
-    //GET Alldata
+    //GET All data
 
-    List<User>getAllUsers();
+    List<User> getAllUsers();
 
     //DELETE
 
     void deleteUser(Long userId);
-
-
 
 
 }

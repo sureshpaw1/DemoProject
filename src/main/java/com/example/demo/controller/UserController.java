@@ -3,6 +3,8 @@ package com.example.demo.controller;
 
 import com.example.demo.model.User;
 import com.example.demo.service.UserServiceI;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,7 @@ import java.util.List;
 @RequestMapping("/api")
 public class UserController {
 
+    Logger log = LoggerFactory.getLogger(User.class);
     //Logger -Log4j
 //Sl4j
     // Data send from UI to Controller body send by using
@@ -31,9 +34,9 @@ public class UserController {
 
     @PostMapping("/users")
     public ResponseEntity<User> createuser(@RequestBody User user) {
-
+        log.info("Entering the request for save user data");
         User saveuser = userServiceI.createUser(user);
-
+        log.info("Completed the Dao call for the save user Data");
         return new ResponseEntity<>(saveuser, HttpStatus.CREATED);    //201
     }
 
@@ -47,6 +50,7 @@ public class UserController {
 
     @GetMapping("/users{userId}")
     public ResponseEntity<User> getSingleUser(@PathVariable Long userId) throws Exception {
+        log.info("Enterring the request for get  user data with user id{}",userId);
         User user = userServiceI.getSingleUser(userId);
         return new ResponseEntity<>(user, HttpStatus.OK);
 
