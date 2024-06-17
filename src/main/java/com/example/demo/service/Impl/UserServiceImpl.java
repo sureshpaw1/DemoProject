@@ -20,10 +20,13 @@ public class UserServiceImpl implements UserServiceI {
 
     @Override
     public User createUser(User user) {
+
         User saveduser = userRepository.save(user);
+
         return saveduser;
     }
-
+//4 th Suresh, 42, Aurangabad
+    // Ramesh 35 pune
     @Override
     public User updateUser(User user, Long userId) {
 
@@ -37,7 +40,7 @@ public class UserServiceImpl implements UserServiceI {
         return updateUser;
     }
 
-    // 1st Suresh
+    // 1st Suresh 42 i am software Dev.
     @Override
     public User getSingleUser(Long userId) throws Exception {
 
@@ -72,7 +75,7 @@ public class UserServiceImpl implements UserServiceI {
     @Override
     public void deleteUser(Long userId) {
 
-        User user = userRepository.findById(userId).orElseThrow(()-> new RuntimeException("Resource not found on server" + userId));
+        User user = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("Resource not found on server" + userId));
 
         userRepository.delete(user);
     }
